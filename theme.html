@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>{Title}{block:SearchPage} - {lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary} - {PostSummary}{/block:PostSummary}</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
+
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="apple-touch-icon" href="{PortraitURL-128}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <style>
+    /* Reset */
+    html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video { border:0; font-size:100%; font:inherit; vertical-align:baseline; margin:0; padding:0; }
+    ol, ul { list-style:none; }
+    blockquote,q { quotes:none; }
+    blockquote:before,blockquote:after,q:before,q:after { content:none; }
+    table { border-collapse:collapse; border-spacing:0; }
+
+/* Style */
+    body { background: #efefef; color: #000000; font: normal 12px Helvetica, 'Helvetica Neue', Arial, sans-serif; overflow-x: hidden; }
+    a, a:active, a:visited, a:hover { text-decoration: none; color: #000000; }
+
+    #main { margin: 0 auto; width: 100%; height: auto; }
+
+    .clearfix { clear: both; }
+    .close:before { content: "×"; font-size: 2em; position: absolute; top: 5px; right: 15px; }
+
+    #logo { 
+        text-align: center;
+        position: fixed;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        font-size: 5em;
+        font-weight: bold;
+        width: auto;
+        height: 50px;
+        letter-spacing: -4px;
+        z-index: 100;
+    }
+
+    #container {
+        margin: 5px auto 0 10%;
+        width: 89%;
+        z-index: 1;
+    }
+
+        #container img {
+            max-width: 500px;
+            width: 500px;
+        }
+
+        #container .px500 {
+            width: 500px!important;
+            overflow: hidden;
+        }
+
+            .perma { 
+                border-top: 1px solid #181818;
+                text-align: center;
+                opacity: 0;
+                margin-top: 10px;
+                font-size: 13px;
+                line-height: auto;
+                letter-spacing: 0;
+
+                -webkit-transition: all 0.3s ease-out;
+                   -moz-transition: all 0.3s ease-out;
+                    -ms-transition: all 0.3s ease-out;
+                     -o-transition: all 0.3s ease-out;
+                        transition: all 0.3s ease-out;
+            }
+
+            .perma a { color: #FFFFFF; }
+            .perma:hover{ opacity: 1; padding-top: 10px; }
+
+
+        #container ul {
+            display: table;
+            width: 100%;
+        }
+
+        #container li { 
+            display: table-cell;
+            float: left;
+            vertical-align: top;
+            margin: 0 10px 10px 0;
+            z-index: 1;
+        }
+
+/* Quote */
+    .quoter {
+        width: 470px;
+        height: auto;
+        padding: 15px;
+        background: #000000;
+        overflow: hidden;
+        font-size: 3em;
+        font-weight: bold;
+        letter-spacing: -1px;
+        line-height: normal;
+        text-align: left;
+        color: #EFEFEF;
+    }
+
+        .quoter:before {
+            content: "“ ";
+            font-family: 'Times New Roman', Baskerville,Times, serif;
+        }
+
+        .quotesoucer {
+            font-style: italic;
+            font-weight: lighter;
+        }
+
+        .quotesoucer:before {
+            content: "” — ";
+            font-family: 'Times New Roman', Baskerville, Times, serif;
+            font-style: normal;
+            font-weight: bold;
+        }
+
+/* Video */
+    .televisor {
+        width: 500px;
+        overflow: hidden!important;
+    }
+
+        .media {
+            text-align: center;
+            height: 400px;
+            width: 700px;
+            margin: 10px 15% 0;
+        }
+
+/* Link */
+    .linker {
+        width: 480px;
+        height: auto;
+        padding: 10px;
+        background: #000000;
+        color: #FFFFFF;
+        overflow: hidden;
+    }
+
+        .linker h3 { font-size: 2.5em; font-weight: bold; text-align: center; }
+        .linker p { font-size: 1.3em; line-height: 1.2em; }
+        .linker a { color: #FFFFFF; font-style: italic; }
+        .linker a:hover { border-bottom: 1px solid #FFFFFF; }
+
+/* Text */
+    .texter {
+        width: 480px;
+        height: auto;
+        padding: 10px;
+        background: #000000;
+        color: #FFFFFF;
+        overflow: hidden;
+    }
+
+        .texter .itstexter { }
+        .texter h3 { font-size: 2.5em; font-weight: bold; text-align: center; }
+        .texter p { font-size: 1.3em; line-height: 1.2em; }
+        .texter a { color: #FFFFFF; font-style: italic; }
+        .texter a:hover { border-bottom: 1px solid #FFFFFF; }
+
+/* Audio */
+    .speaker {
+
+    }
+
+/* Photoset */
+    .photosetter {
+
+    }
+
+/* Chat */
+    .bullshitter {
+        width: 800px;
+        padding: 10px 0;
+        color: #000000;
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 35px;
+        letter-spacing: -2px;
+    }
+
+        .titlebullshitter {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        .bullshitterlabel {
+            font-size: 0.5em;
+            vertical-align: middle;
+            font-style: italic;
+            letter-spacing: 0;
+        }
+
+/* Answer */
+
+    .shittalkinn { 
+        width: 50%;
+        max-width: 800px;
+        font-weight: bold;
+        padding: 10px 0;
+        color: #000000;
+    }
+
+    .homeshittalkinn {
+        width: 480px;
+        height: auto;
+        padding: 10px;
+        overflow: hidden;
+
+        font-weight: bold;
+        color: #FFFFFF;
+        background: #000000;
+    }
+
+        .homeshittalkinn a { color: #FFFFFF; font-size: 1em; }
+
+        .asker { font-size: 2em; }
+        .asker a { font-size: 1em; }
+        .question { font-size: 5em; letter-spacing: -4px; line-height: 45px; }
+        .answerer { font-size: 1.7em; }
+        .answer p { font-size: 3em;  padding: 0; margin: 0; } 
+
+/** Single */
+    #single-container { 
+        float: right;
+        width: 100%; 
+        transition: width 0.5s ease;
+        z-index: 1; 
+    }
+
+    #contentitselftxt { margin: 10px 0 0 240px; }
+    
+    .uselesshit { 
+        position: fixed; 
+        top: 0; 
+        width: 0; 
+        height: 100%; 
+        background: #000000;
+        color: #FFFFFF; 
+        overflow: hidden;
+        transition: width 0.3s ease;
+        z-index: 101;
+    }
+
+        .uselesshit:hover {
+            overflow-y: auto;
+        }
+
+        .uselesshit .post-informer {
+            width: 97%;
+            margin: 0 auto;
+            padding: 35px 5px 10px 5px;
+            color: #FFFFFF;
+        }
+
+        .uselesshit a { color: #FFFFFF; }
+
+        .uselesshit h2 {
+            font-size: 2em;
+            letter-spacing: 1px;
+            font-weight: bold;
+            line-height: 25px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #202020;
+        }
+
+        .uselesshit .post-informer .socializer {
+            border-bottom: 1px solid #202020;
+            padding-bottom: 10px;
+            margin: 10px 0;
+            font-size: 25px;
+            text-align: center;
+
+            font-family: 'mnmlthm';
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .uselesshit .post-informer .socializer a:hover { color: #00FF6E; }
+
+        .like_button { width: 22px; display: inline-block; overflow: hidden; vertical-align: middle; }
+
+        ol.note, li.note {
+            width: 15px;
+            height: 15px;
+            float: left;
+            margin: 0 5px 5px 0;
+            overflow: hidden;
+        }
+            li.note span { display: none; }
+
+        .more_notes_link_container { 
+            width: 80px!important;
+            height: 10px!important;
+            overflow: hidden!important;
+        }
+
+        .stater { }
+
+        .notesinfo { margin: 0 auto; text-align: center; margin-bottom: 20px; } 
+        .notesnum { font-size: 3em; } 
+        .notesname { font-size: 1.5em; }
+
+        .tags { border-bottom: 1px solid #202020; padding-bottom: 20px; margin: 20px 0; }
+            .tag, .sourcer { padding: 5px; background: rgba(35,35,35,.6); border: 1px solid rgba(35,35,35,.6); }
+            .tag:hover, .sourcer:hover { background: #181818; }
+
+        .notes { opacity: 0; transition: all 0.4s ease-in-out; }
+        .post-notes:hover > .notes { opacity: 1; }
+
+        .sourcers { border-bottom: 1px solid #202020; padding-bottom: 20px; margin: 20px 0; }
+
+    #stater { 
+        display: table;
+        position: fixed;
+        margin: auto;
+        top: 49%;
+        right: 20%;
+        font-size: 2em;
+        font-weight: bold;
+        width: auto;
+        height: 50px;
+        z-index: 100;
+    }
+
+    .close-menu { display: none; }
+    .post-informer { opacity: 0; }
+    #notes:target { width: 30%; }
+    #notes:target + #single-container { width: 70%; }
+    #notes:target + #single-container .open-menu { display: none; }
+    #notes:target + #single-container .close-menu { display: block; }
+    #notes:target + #single-container .uselesshit { width: 80%; left: 50%; }
+    #notes:target .post-informer { transition: all 2.1s ease; opacity: 1; }
+
+
+    #txtpages {
+        max-width: 800px;
+        height: auto;
+        color: #FFFFFF;
+        padding: 10px;
+        font-size: 13px;
+        line-height: 15px;
+
+        background-color: #000000;
+        border: 1px solid #181818;
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        transition: all 0.4s ease 0s;
+    }
+
+        #txtpages a { color: #FFFFFF; border-bottom: 1px dotted #FFFFFF; }
+        #txtpages a:hover { border-bottom: 1px solid #FFFFFF; }
+
+        #txtpages p { font-size: 0.9em;}
+        #txtpages img { max-width: 95%; margin: 5px 0; }
+
+        #txtpages h1 {
+            font-size: 3em;
+            font-weight: bold;
+            letter-spacing: -1px;
+            text-transform: capitalize;
+            padding: 10px 0;
+        }
+
+        #dontshow, .dontshow { display: none; }
+
+
+    #informator {
+        position: fixed;
+        margin: auto;
+        left: 20px;
+        bottom: 30px;
+        font-size: 2em;
+        font-weight: bold;
+        letter-spacing: -1px;
+        z-index: 100;
+
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: top;
+        perspective: 300px;
+        perspective-origin: 50% 50%;
+    }
+
+        #informator:hover { background: none; text-shadow: none; }
+
+        #informator span {
+              display: block;
+              position: relative;
+              padding: 0 2px;
+              pointer-events: none;
+              width: 150px;
+              transition: all 400ms ease 0s;
+              transform-origin: 50% 0 0;
+              transform-style: preserve-3d;
+        }
+
+        #informator:hover span { transform: translate3d(0px, 0px, -46px) rotateX(90deg); }
+
+        #informator span:after {
+              content: "by ShockBlast";
+              display: block;
+              position: absolute;
+              left: 0;
+              top: 0;
+              padding: 0 2px;
+              white-space: nowrap;
+              transform-origin: 55% 0%;
+              transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
+        }
+
+    #gotop { 
+        position: fixed; 
+        right: 10px;
+        width: 1em;
+        bottom: 5px;
+        font-size: 1.5em;
+        z-index: 999;
+        cursor: pointer;
+    }
+
+    #paginator { 
+        position: fixed;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 90px;
+        z-index: 100;
+        font-size: 4em;
+        font-weight: bold;
+        color: #232323;
+        transition: all 0.5s ease-out;
+    }
+
+
+        #paginator .righter .hjkdd, #paginator .lefter .hjkdd { opacity: 0; font-size: 20px; vertical-align: middle; transition: all 0.3s ease-out; }
+        #paginator .righter:hover .hjkdd, #paginator .lefter:hover .hjkd { opacity: 1; }
+
+        #nextPage { display: none; }
+
+        #infscr-loading {
+            bottom: 30px;
+            color: #181818;
+            display: inline-block;
+            font-size: 60px;
+            font-weight: bold;
+            letter-spacing: -3px;
+            margin: 0 auto;
+            position: fixed;
+            right: 0;
+            text-align: center;
+            width: 100%;
+            z-index: 111;
+        }
+
+        #infscr-loading img { width: 1px; height: 1; }
+
+
+/* Menu */
+    #navigator {
+        text-align: left;
+        position: fixed;
+        margin: auto;
+        top: 30px;
+        left: 30px;
+        font-size: 4em;
+        font-weight: bold;
+        width: auto;
+        height: 40px;
+        letter-spacing: -2px;
+        z-index: 100;
+        color: #181818; 
+    }
+
+    .navigator {
+        position: relative;
+        width: 200px;
+        height: 55px;
+        margin: 0 auto;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3s ease-out;
+    }
+
+    .navigator:after {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        margin-top: -3px;
+        border: none;
+    }
+
+    .navigator .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        list-style: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-out;
+    }
+
+    .navigator .dropdown li { padding: 0; }
+
+    .navigator .dropdown li a {
+        display: block;
+        text-decoration: none;
+        text-transform: capitalize;
+        color: #181818;
+        padding: 0;
+        transition: all 0.3s ease-out;
+    }
+
+    .navigator .dropdown li i { margin-right: 5px; color: inherit; vertical-align: middle; }
+
+    /* Hover state */
+    .navigator .dropdown li:hover a { color: rgba(0,0,0,.6); }
+
+    /* Active state */
+    .navigator.active { color: white; }
+    .navigator.active .dropdown { max-height: 500px; }
+
+    .navigator:focus { color: #181818; }
+    .navigator:focus:after { }
+    .navigator:focus .dropdown { max-height: 500px; }
+
+/* Smaller */
+@media screen and (min-width: 1100px) {
+
+}
+
+/* Dark */
+    body.darx { background: #13141B; color: #FFFFFF; }
+    body.darx a { color: #FFFFFF; }
+    body.darx .navigator .dropdown li a { color: #E8E8E8; }
+    body.darx .navigator .dropdown li:hover a { color: rgba(232,232,232,.6); }
+    body.darx #navigator { color: #E8E8E8; }
+    body.darx .navigator:focus { color: #E8E8E8; }
+    body.darx .shittalkinn { color: #FFFFFF; }
+    body.darx .bullshitter { color: #FFFFFF; }
+    body.darx #infscr-loading  { color: #FFFFFF; }
+
+    </style>
+
+    <meta name="if:Dark Theme" content="0">
+    <meta name="if:Infinity Scroll" content="1">
+
+    <meta name="text:Link 1 Name" content="">
+    <meta name="text:Link 1 URL" content="">
+    <meta name="text:Link 2 Name" content="">
+    <meta name="text:Link 2 URL" content="">
+    <meta name="text:Link 3 Name" content="">
+    <meta name="text:Link 3 URL" content="">
+
+    <meta name="text:Tag page 1" content="">
+    <meta name="text:Tag page 2" content="">
+    <meta name="text:Tag page 3" content="">
+
+</head>
+<body{block:IfDarkTheme} class="darx"{/block:IfDarkTheme}>
+
+    <header>
+        <div id="logo"><a href="/">{Title}</a></div>
+
+            <nav id="navigator">
+                <div id="dd" class="navigator" tabindex="1">Menu
+                    <ul class="dropdown">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/archive">Archive</a></li>
+                        {block:IfLink1URL}<li><a href="{text:Link 1 URL}">{text:Link 1 Name}</a></li>{/block:IfLink1URL}
+                        {block:IfLink2URL}<li><a href="{text:Link 2 URL}">{text:Link 2 Name}</a></li>{/block:IfLink2URL}
+                        {block:IfLink3URL}<li><a href="{text:Link 3 URL}">{text:Link 3 Name}</a></li>{/block:IfLink3URL}
+                        {block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
+                        {block:IfTagpage1}<li><a href="/tagged/{text:Tag page 1}">{text:Tag page 1}</a></li>{/block:IfTagpage1}
+                        {block:IfTagpage2}<li><a href="/tagged/{text:Tag page 2}">{text:Tag page 2}</a></li>{/block:IfTagpage2}
+                        {block:IfTagpage3}<li><a href="/tagged/{text:Tag page 3}">{text:Tag page 3}</a></li>{/block:IfTagpage3}
+                        {block:AskEnabled}<li><a href="/ask">Ask</a></li>{/block:AskEnabled}
+                        {block:SubmissionsEnabled}<li><a href="/submit">Submit</a></li>{/block:SubmissionsEnabled}
+                    </ul>
+                ​</div>
+            </nav>
+    </header>
+
+{block:IndexPage}
+    <section id="container">
+        <ul>
+{/block:IndexPage}
+
+{block:Posts}
+    {block:IndexPage}
+
+        {block:Answer}
+            <li class="item">
+                <div class="px500">
+                    <div class="homeshittalkinn">
+                        <div class="asker">{Asker} wrote:</div>
+                        <h2 class="question">{Question}</h2>
+                        <span>&nbsp;</span>
+                        <div class="answerer"><a href="/">{Title}</a> answered:</div>
+                        <div class="answer">{Answer}</div>
+                        <div class="perma"><a href="{Permalink}">Post Page</a></div>
+                    </div>
+                </div>
+            </li>
+        {/block:Answer}
+
+
+        {block:Audio}
+            <li class="item">
+                <div class="px500">
+                    {AudioEmbed-500}
+                </div>
+            </li>
+        {/block:Audio}
+
+
+        {block:Chat}
+            <li class="item">
+                <div class="px500">
+
+                   <div class="linker">
+                        <h3><a href="{Permalink}">{block:Title}{Title}{/block:Title}</a></h3>
+                    </div>
+
+                </div>
+            </li>
+        {block:Chat}
+
+
+        {block:Link}
+            <li class="item">
+                <div class="px500">
+                    <div class="linker">
+                        <h3><a href="{URL}">{Name}</a></h3>
+                    </div>
+                </div>
+            </li>
+        {/block:Link}
+
+
+        {block:Photo}
+            <li class="item">
+                <div class="px500">
+                    <a href="{Permalink}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"></a>
+                </div>
+            </li>
+        {/block:Photo}
+
+
+        {block:Photoset}
+            <li class="item">
+                <div class="px500">
+                    {Photoset-500}
+                </div>
+            </li>
+        {/block:Photoset}
+
+
+        {block:Quote}
+            <li class="item">
+                <div class="px500">
+                    <div class="quoter">
+                        {Quote} <span class="quotesoucer">{Source}</span>
+                        <div class="perma"><a href="{Permalink}">Quote Page</a></div>
+                    </div>
+                </div>
+             </li>
+        {/block:Quote}
+
+
+        {block:Text}
+            <li class="item">
+                <div class="px500">
+                    <div class="texter"><h3><a href="{Permalink}">{Title}</a></h3></div>
+                </div>
+            </li>
+        {/block:Text}
+
+
+        {block:Video}
+            <li class="item">
+                <div class="px500">
+                    <div class="televisor">{VideoEmbed-500}</div>
+                </div>
+            </li>
+        {/block:Video}
+
+    {/block:IndexPage}
+
+    {block:PermalinkPage}
+
+    <div class="uselesshit" id="notes">
+        <div class="post-informer">
+            <a href="#!" class="close"> </a>
+{block:Caption}
+            <h2>{Caption}</h2>
+{/block:Caption}
+            <div class="socializer">
+                {LikeButton color="white"}
+                <a href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={Permalink}" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/intent/tweet?original_referer={Permalink}&source=tweetbutton&text=Wow, Dope Post! - &url={ShortURL}" target="_blank"><i class="fa fa-twitter"></i></a>
+                <span class="clearfix"></span>
+            </div>
+
+            <div class="stater">
+                <ul>
+{block:HasTags} 
+                    <li class="tags">
+                        Tags: {block:Tags}<span class="tag"><a href="{TagURL}">{Tag}</a></span>{/block:Tags}
+                    </li>
+{/block:HasTags}
+{block:ContentSource}
+                    <li class="sourcers">
+                        Source: <span class="sourcer"><a href="{SourceURL}" targe="_blank">{SourceTitle}</a></span>
+                    </li>
+{/block:ContentSource}
+                </ul>
+            </div>
+
+    <span class="clearfix"></span>
+
+            <div class="post-notes">
+{block:NoteCount}
+               <div class="notesinfo">
+                    <span class="notesnum">{NoteCount}</span><br>
+                    <span class="notesname">NOTES</span>
+                </div>
+{/block:NoteCount}
+
+{block:PostNotes}
+                {PostNotes}
+{/block:PostNotes}
+            </div>
+        </div>
+    </div>
+
+    <div id="single-container">
+
+        <div id="stater">
+            <a href="#notes" class="open-menu" {block:Text}id="dontshow"{/block:Text} {block:Answer}id="dontshow"{/block:Answer}> stats </a>
+            <a href="#!" class="close-menu" {block:Text}id="dontshow"{/block:Text} {block:Answer}id="dontshow"{/block:Answer}> close </a>
+        </div>
+
+        {block:Answer}
+        <div id="contentitselftxt">
+            <div class="shittalkinn">
+                <div class="asker">{Asker} wrote:</div>
+                <h2 class="question">{Question}</h2>
+                <span>&nbsp;</span>
+                <span><br></span>
+                <div class="answerer"><a href="/">{Title}</a> answered:</div>
+                <div class="answer">{Answer}</div>
+            </div>
+        </div>
+        {/block:Answer}
+
+
+        {block:Audio}
+        <div id="contentitself">
+            <div id="txtpages">
+                <h1>{block:Artist}{Artist} - {/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}</h1>
+                <span><br></span>
+                {AudioEmbed-500}
+            </div>
+        </div>
+        {/block:Audio}
+
+        {block:Chat}
+        <div id="contentitselftxt">    
+            <div class="bullshitter">
+                {block:Title}<h2 class="titlebullshitter">{Title}</h2>{/block:Title}
+
+                <ul class="thebullshitter">
+                    {block:Lines}
+                        <li>{block:Label}<span class="bullshitterlabel">{Label}&nbsp;</span>{/block:Label} {Line}</li>
+                    {/block:Lines}
+                </ul>
+            </div>
+        </div>
+        {/block:Chat}
+
+        {block:Link}
+        <div id="contentitselftxt">
+            <div class="linker">
+                <h3><a href="{URL}">{Name}</a></h3>
+            </div>
+        </div>
+        {/block:Link}
+
+
+        {block:Photo}
+        <div id="contentitself">
+            <a href="{LinkURL}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"></a>
+        </div>
+        {/block:Photo}
+
+
+        {block:Photoset}
+        <div id="contentitself">
+            {Photoset-700}
+        </div>
+        {/block:Photoset}
+
+
+        {block:Text}
+        <div id="contentitselftxt">
+            <div id="txtpages">
+                <h1>{Title}</h1>
+                <div>{Body}</div>
+            </div>
+        </div>
+        {/block:Text}
+
+
+        {block:Quote}
+        <div id="contentitselftxt">
+            <div class="cntntitslfhldr">
+                <div class="quoter">{Quote} <span class="quotesoucer">{Source}</span></div>
+            </div>
+        </div>
+        {/block:Quote}
+
+
+        {block:Video}
+        <div id="contentitself">
+            {VideoEmbed-700}
+        </div>
+        {/block:Video}
+    </div>
+
+    {/block:PermalinkPage}
+{/block:Posts}
+
+{block:IndexPage}
+        </ul>
+    </section>
+{/block:IndexPage}
+
+{block:IfNotInfinityScroll}
+    {block:Pagination}
+        <div id="paginator">
+            {block:NextPage}<div class="righter"><a href="{NextPage}" title="Newer posts" id="futureposts"><b class="hjkdd">Future</b> &rang;</a></div>{/block:NextPage}
+            {block:PreviousPage}<div class="lefter"><a href="{PreviousPage}" title="Older posts"><b class="hjkdd">Past</b> &lang;</a></div>{/block:PreviousPage}
+        </div>
+    {/block:Pagination}
+{/block:IfNotInfinityScroll}
+
+    <div id="gotop"><a href="#">▲</a></div>
+
+    <footer>
+        <a href="http://www.shockblast.net/" id="informator"><span>.mnml</span></a>
+    </footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#gotop').click(function(e){
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+    });
+});
+</script>
+
+
+{block:IndexPage}
+
+{block:IfNotInfinityScroll}
+<script src="//cdnjs.cloudflare.com/ajax/libs/masonry/2.1.08/jquery.masonry.min.js"></script>
+<script>$(function(){ var $container = $('#container'); $container.imagesLoaded(function(){ $container.masonry({ itemSelector: '.item' }); }); });</script>
+{/block:IfNotInfinityScroll}
+
+{block:IfInfinityScroll}
+<script src="//cdnjs.cloudflare.com/ajax/libs/masonry/2.1.08/jquery.masonry.min.js"></script>
+<script src="//static.tumblr.com/qkikqqh/kqWn92hej/jquery.infinitescroll.min.js"></script>
+
+{block:Pagination}{block:NextPage}<div id="nextPage"><a href="{NextPage}">Next</a></div>{/block:NextPage}{/block:Pagination}
+
+<script>
+  $(function(){
+    
+    var $container = $('#container');
+    
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector: '.item'
+      });
+    });
+    
+    $container.infinitescroll({
+      navSelector  : '#nextPage',
+      nextSelector : '#nextPage a',
+      itemSelector : '.item',
+      bufferPx: 10,
+      loading: {
+          finishedMsg: "I think we've hit the end, Jim.",
+          img: null,
+          msgText: 'Loading...'
+
+        }
+      },
+
+      function( newElements ) {
+        var $newElems = $( newElements ).css({ opacity: 0 });
+
+        $newElems.imagesLoaded(function(){
+
+          $newElems.animate({ opacity: 1 });
+          $container.masonry( 'appended', $newElems, true ); 
+        });
+      }
+    );
+    
+  });
+</script>
+{/block:IfInfinityScroll}
+
+{/block:IndexPage}
+
+<!-- 
+    Theme: Big Type Theme / Minimal Helvetica Tribute Theme for Tumblr  
+    URI: https://github.com/thagxt/Big-Type
+
+    Dev: gxt/JVH 
+    URI: https://thaGXT.biz
+
+    For: ShockBlast
+    URI: https://www.ShockBlast.net
+
+    Theme Updates: https://github.com/thagxt/Big-Type
+
+-->
+    </body>
+</html>
