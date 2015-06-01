@@ -16,6 +16,9 @@ The Theme let's you switch from `Light` to a `Dark` version. Turn on/off infinit
 2. Go to Tumblr > `Paste` + `Save`
 3. `Enjoy`
 
+#### Support / Bugs / Feature requests etc.
+feel free to open an issue if you have suggestions, reuqests found bugs etc.
+
 ### Screenshots
 ![image](https://i.imgur.com/GtpP25n.png)
 ![image](https://i.imgur.com/TEo3Knp.png)
