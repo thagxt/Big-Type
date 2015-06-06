@@ -20,7 +20,7 @@ The Theme let's you switch from `Light` to a `Dark` version. Turn on/off infinit
 feel free to open an issue if you have suggestions, requests, bugs etc.
 
 ### Screenshots
-![image](https://i.imgur.com/CfkT67R.png)
+![image](https://i.imgur.com/SMlpopf.png)
 ![image](https://i.imgur.com/TEo3Knp.png)
 ![image](https://i.imgur.com/YgLc5hF.png)
 ![image](https://i.imgur.com/LWEnMHE.png)
