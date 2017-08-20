@@ -4,7 +4,7 @@
 ## Desc
 Plain, Simple, Minimal Type focused theme for Tumblr. A tribute to the Helvetica typeface.
 
-The Theme let's you switch from `Light` to a `Dark` version. Turn on/off infinite scroll and add your own links/pages etc.
+The Theme let's you switch from `Bright` to a `Dark` version. Turn on/off infinite scroll and add your own links/pages etc.
 
 ## Demo
   -- [Theme Showcase Page](http://big-type-theme.tumblr.com/) / Bright Version
