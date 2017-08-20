@@ -7,9 +7,9 @@ Plain, Simple, Minimal Type focused theme for Tumblr. A tribute to the Helvetica
 The Theme let's you switch from `Light` to a `Dark` version. Turn on/off infinite scroll and add your own links/pages etc.
 
 ## Demo
-  -- [Theme Showcase Page](http://big-type-theme.tumblr.com/) / Light Vers
+  -- [Theme Showcase Page](http://big-type-theme.tumblr.com/) / Bright Version
   
-  -- [In Real Life](http://gxt.tumblr.com/) / Dark Vers
+  -- [In Real Life](http://gxt.tumblr.com/) / Dark Version
 
 #### Install
 1. `Get themes code` > [HERE](https://raw.githubusercontent.com/thagxt/Big-Type/master/theme.html) > `Select everything` + `Copy`
